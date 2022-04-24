@@ -1,8 +1,13 @@
-POST  http://localhost:4000/app/signup
+POST  http://localhost:4000/app/profile
 Content-Type: application/json
 
 {
     "fullName":"Muskan",
     "email":"muskanpatni2612@gmail.com",
-    "password":"!Muskan!"
+    "address":"rajapark corner,near falooda center,jaipur,surat",
+    "pincode":"302017",
+    "contact":"6352844126",
+    "bio":"i am a local vendor selling authentic pani puris since years.",
+    "category":"food",
+    "brandname":"Goma pani-puri"
 }
