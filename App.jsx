@@ -8,11 +8,21 @@ class App extends Component {
         this.state = {
             fullName:'',
             email:'',
-            password:''
+            address:'',
+            pincode:'',
+            contact:'',
+            bio:'',
+            category:'',
+            brandname:''
         }
         this.changeFullName = this.changeFullName.bind(this)
         this.changeEmail = this.changeEmail.bind(this)
-        this.changePassword = this.changePassword.bind(this)
+        this.changeAddress = this.changeAddress.bind(this)
+        this.changePincode = this.changePincode.bind(this)
+        this.changeContact = this.changeContact.bind(this)
+        this.changeBio = this.changeBio.bind(this)
+        this.changeCategory = this.changeCategory.bind(this)
+        this.changeBrandname = this.changeBrandname.bind(this)
         this.onSubmit = this.onSubmit.bind(this)
     }
 
@@ -26,11 +36,37 @@ class App extends Component {
             email: event.target.value
         })
     }
-    changePassword(event){
+    changeAddress(event){
         this.setState({
-            password: event.target.value
+            address: event.target.value
         })
     }
+    changePincode(event){
+        this.setState({
+            pincode: event.target.value
+        })
+    }
+    changeContact(event){
+        this.setState({
+            contact: event.target.value
+        })
+    }
+    changeBio(event){
+        this.setState({
+            bio: event.target.value
+        })
+    }
+    changeCategory(event){
+        this.setState({
+            category: event.target.value
+        })
+    }
+    changeBrandname(event){
+        this.setState({
+            brandname: event.target.value
+        })
+    }
+    
 
     onSubmit(event){
         event.preventDefault()
@@ -38,7 +74,13 @@ class App extends Component {
         const registered = {
             fullName: this.state.fullName,
             email: this.state.email,
-            password: this.state.password
+            address: this.state.address,
+            pincode: this.state.pincode,
+            contact: this.state.contact,
+            bio: this.state.bio,
+            category: this.state.category,
+            brandname: this.state.brandname
+            
         }
 
         axios.post('http://localhost:4000/app/signup', registered)
@@ -47,7 +89,13 @@ class App extends Component {
         this.setState({
             fullName:'',
             email:'',
-            password:''
+            address:'',
+            pincode:'',
+            contact:'',
+            bio:'',
+            category:'',
+            brandname:''
+            
         })
     }
 
@@ -71,12 +119,49 @@ class App extends Component {
                             className='form-control form-group'
                             />
 
-                            <input type='password'
-                            placeholder='password'
-                            onChange={this.changePassword}
-                            value={this.state.password}
+                            <input type='text'
+                            placeholder='Address'
+                            onChange={this.changeAddress
+                            value={this.state.address}
                             className='form-control form-group'
                             />
+
+                           <input type='number'
+                            placeholder='Pincode'
+                            onChange={this.changePincode}
+                            value={this.state.contact}
+                            className='form-control form-group'
+                            />
+
+                            <input type='number'
+                            placeholder='Contact'
+                            onChange={this.changeContact}
+                            value={this.state.contact}
+                            className='form-control form-group'
+                            />
+
+                           <input type='text'
+                            placeholder='Bio'
+                            onChange={this.changeBio}
+                            value={this.state.bio}
+                            className='form-control form-group'
+                            />
+
+                            <input type='text'
+                            placeholder='Category'
+                            onChange={this.changeCategory}
+                            value={this.state.category}
+                            className='form-control form-group'
+                            />
+                            <input type='text'
+                            placeholder='Brandname'
+                            onChange={this.changeBrandname}
+                            value={this.state.brandname}
+                            className='form-control form-group'
+                            />
+
+                            
+
 
                             <input type="submit" className='btn btn-primary btn-block' value='Submit' />
                         </form>
